@@ -1,15 +1,16 @@
-import tkinter as tk
+import tkinter 
 import re, os
 
-root = tk.Tk()
-w_h = [root.winfo_screenwidth(), root.winfo_screenheight()]
+root = tkinter.Tk()
+width = root.winfo_screenwidth()
+height = root.winfo_screenheight()
 
-with open(r"C:\Program Files (x86)\Steam\steamapps\common\Underlords\game\dac\cfg\video.txt", "r") as f:
-    string = re.sub(r"setting\.defaultres\"\s{2}\"\d+\"", f"setting.defaultres\"		\"{w_h[0]}\"", f.read())
-    string = re.sub(r"setting\.defaultresheight\"\s{2}\"\d+\"", f"setting.defaultresheight\"		\"{w_h[1]}\"", string)
+with open(r"C:\Program Files (x86)\Steam\steamapps\common\Underlords\game\dac\cfg\video.txt", "r") as file:
+    string = re.sub(r"setting\.defaultres\"\s{2}\"\d+\"", f"setting.defaultres\"		\"{width}\"", file.read())
+    string = re.sub(r"setting\.defaultresheight\"\s{2}\"\d+\"", f"setting.defaultresheight\"		\"{height}\"", string)
 
-with open(r"C:\Program Files (x86)\Steam\steamapps\common\Underlords\game\dac\cfg\video.txt", "w") as f:
-    f.write(string)
+with open(r"C:\Program Files (x86)\Steam\steamapps\common\Underlords\game\dac\cfg\video.txt", "w") as file:
+    file.write(string)
 
 
 os.system(r"C:\\\"Program Files (x86)\"\\Steam\\steamapps\\common\\Underlords\\game\\bin\\win64\\underlords.exe")
